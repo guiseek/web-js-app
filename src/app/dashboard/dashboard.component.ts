@@ -11,6 +11,9 @@ export class DashboardComponent implements OnInit {
   pages = [{
     path: '/users',
     text: 'Usuários'
+  },{
+    path: '/courses',
+    text: 'Cursos'
   }]
   constructor(
     private auth: AuthService,

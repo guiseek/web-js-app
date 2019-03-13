@@ -1,0 +1,42 @@
+<div>
+  <h2>Cursos</h2>
+  <nav>
+    <button type="button" (click)="onCreate()">
+      Criar novo curso
+    </button>
+  </nav>
+  <div *ngIf="courses$ | async as courses; else loading">
+    <table>
+      <thead>
+        <tr>
+          <th>Curso</th>
+          <th>Carga horária</th>
+          <th>Período</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses">
+          <td>{{course.name}}</td>
+          <td>{{course.workload}} horas</td>
+          <td>
+            {{course.period.start | date}}
+            à
+            {{course.period.end | date}}
+          </td>
+          <td>
+            <button type="button" (click)="onEdit(course._id)">
+              Alterar
+            </button>
+            <button type="button" (click)="onRemove(course._id)">
+              Apagar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #loading>
+    <span>Carregando cursos...</span>
+  </ng-template>
+</div>

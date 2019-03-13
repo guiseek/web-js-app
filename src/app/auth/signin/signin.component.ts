@@ -16,6 +16,7 @@ export class SigninComponent {
     private formBuilder: FormBuilder,
     private router: Router
   ) {
+    this.authService.signOut()
     this.signInForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]

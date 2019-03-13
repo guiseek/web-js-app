@@ -1,0 +1,9 @@
+<div>
+  <h2>Editar curso</h2>
+  <div *ngIf="course$ | async as course; else loading">
+    <app-courses-form [course]="course" (onSave)="onSave($event)"></app-courses-form>
+  </div>
+  <ng-template #loading>
+    <span>Carregando curso...</span>
+  </ng-template>
+</div>
