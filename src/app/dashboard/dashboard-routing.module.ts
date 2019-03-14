@@ -13,6 +13,10 @@ const routes: Routes = [
         component: UsersComponent
       },
       {
+        path: 'products',
+        loadChildren: './products/products.module#ProductsModule'
+      },
+      {
         path: '',
         redirectTo: 'users'
       }

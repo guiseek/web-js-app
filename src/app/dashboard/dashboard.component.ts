@@ -8,10 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  pages = [{
-    path: '/users',
-    text: 'Usuários'
-  }]
   constructor(
     private auth: AuthService,
     private router: Router

@@ -26,7 +26,7 @@ export class SigninComponent {
     this.authService.signIn(
       this.signInForm.value
     ).subscribe(
-      (response) => this.router.navigateByUrl('/'),
+      (response) => this.router.navigateByUrl('/dashboard'),
       (error) => {
         this.error = error.message;
         this.signInForm.get('password').reset();

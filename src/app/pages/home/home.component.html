@@ -1,0 +1,17 @@
+<div>
+  <h1>Produtos</h1>
+  <div *ngIf="products$ | async as products; else loading">
+    <div *ngFor="let p of products">
+      <header>
+        <h2>{{p.name}}</h2>
+        <h3>{{p.price | currency:'BRL'}}</h3>
+        <small>{{p.weight}}g - {{p.amount}} unidades em estoque</small>
+      </header>
+      <p>{{p.description}}</p>
+      <footer>
+        <button type="button" (click)="addToCart(p)">Adicionar ao carrinho</button>
+      </footer>
+    </div>
+  </div>
+  <ng-template #loading>Carregando produtos...</ng-template>
+</div>

@@ -8,9 +8,13 @@ const routes: Routes = [
     loadChildren: './auth/auth.module#AuthModule'
   },
   {
-    path: '',
+    path: 'dashboard',
     canActivate: [AuthGuard],
     loadChildren: './dashboard/dashboard.module#DashboardModule'
+  },
+  {
+    path: '',
+    loadChildren: './pages/pages.module#PagesModule'
   },
   {
     path: '**',

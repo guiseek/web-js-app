@@ -1,0 +1,7 @@
+<div>
+  <h2>Novo produto</h2>
+</div>
+<div>
+  <app-product-form [parentForm]="productForm" (onSubmit)="onSubmit()"></app-product-form>
+</div>
+<pre>{{productForm.value|json}}</pre>

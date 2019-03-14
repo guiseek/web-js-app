@@ -4,12 +4,17 @@
 <div>
   <aside>
     <button (click)="signOut()">Sair do sistema</button>
-    <div>
+    <nav>
       <h3>Navegação</h3>
-      <a *ngFor="let page of pages" [routerLink]="[page.path]" routerLinkActive="active">
-        {{page.text}}
-      </a>
-    </div>
+      <ul>
+        <li>
+          <a routerLink="users">Usuários</a>
+        </li>
+        <li>
+          <a routerLink="products">Produtos</a>
+        </li>
+      </ul>
+    </nav>
   </aside>
   <main>
     <router-outlet></router-outlet>

@@ -1,0 +1,12 @@
+:host {
+  main {
+    display: flex;
+    flex-direction: row;
+    &>#content {
+      width: 70%;
+    }
+    &>aside {
+      width: 30%;
+    }
+  }
+}

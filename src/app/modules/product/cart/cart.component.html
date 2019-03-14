@@ -1,0 +1,14 @@
+<div>
+  <h2>Carrinho</h2>
+  <div *ngIf="cart$ | async as products">
+    <div *ngFor="let p of products; index as i">
+      <h3>{{p.name}}</h3>
+      <p>{{p.price | currency:'BRL'}}</p>
+      <button (click)="remove(i)">Remover do carrinho</button>
+      <hr>
+    </div>
+    <div *ngIf="!products.length">
+      Carrinho vazio
+    </div>
+  </div>
+</div>
