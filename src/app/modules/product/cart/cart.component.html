@@ -1,0 +1,15 @@
+<div *ngIf="cart$ | async as products">
+  <mat-list>
+    <mat-list-item *ngFor="let p of products; index as i">
+      <h3 mat-line> {{p.name}} </h3>
+      <p mat-line> {{p.price|currency:'BRL'}} </p>
+      <button mat-icon-button (click)="remove(i)">
+        <mat-icon>remove_shopping_cart</mat-icon>
+      </button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+  <button class="full-width" mat-button [disabled]="!products.length" (click)="checkout()">
+    Comprar ({{total|currency:'BRL'}})
+  </button>
+</div>

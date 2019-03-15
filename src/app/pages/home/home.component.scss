@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  mat-card {
+    width: calc(25% - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+    button {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      color: #4CAF50;
+      mat-icon {
+        font-size: 32px;
+      }    
+    }
+    mat-card-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: calc(100% - 32px);
+    }
+    mat-card-content {
+      color: #888;
+    }
+  }
+}

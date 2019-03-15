@@ -9,6 +9,7 @@ import { UsersService } from 'src/app/users/users.service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
+  displayedColumns = ['id', 'name', 'email'];
   users$: Observable<User[]>;
   constructor(
     private usersService: UsersService

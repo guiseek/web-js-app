@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.tb-icon {
+  padding-right: 8px;
+}
+mat-card.card-with-table {
+  padding-left: 0;
+  padding-right: 0;
+  mat-card-content > div {
+    position: relative;
+    height: calc(100vh - 150px);
+    overflow: auto;
+    table {
+      width: 100%;
+      .mat-column-edit {
+        width: 160px;
+        padding-right: 8px;
+      }
+    }
+  }
+  .actions {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    font-size: 16px;
+    color: #444;
+  }
+}
+app-signin,
+app-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

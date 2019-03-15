@@ -1,0 +1,43 @@
+<mat-card class="card-with-table">
+  <mat-card-header>
+    <mat-card-title>
+      Produtos
+      <div class="actions">
+        <button mat-button routerLink="create">
+          <mat-icon class="tb-icon">add</mat-icon>
+          Adicionar produto
+        </button>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="products$ | async as products; else loading">
+      <table mat-table class="full-width-table" [dataSource]="products" aria-label="Elements">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let row">{{row.name}}</td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>Preço</th>
+          <td mat-cell *matCellDef="let row">{{row.price | currency:'BRL'}}</td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef>Estoque</th>
+          <td mat-cell *matCellDef="let row">{{row.amount}}</td>
+        </ng-container>
+        <ng-container matColumnDef="edit" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <a mat-button [routerLink]="['update',element._id]">Editar</a>
+            <button mat-button color="danger" (click)="onDelete(element._id)">Apagar</button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <ng-template #loading>
+      <mat-progress-bar mode="query"></mat-progress-bar>
+    </ng-template>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,38 @@
+<form [formGroup]="parentForm" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Produto</mat-label>
+        <input matInput placeholder="Ex.: Livro Segredos do Ninja JavaScript" formControlName="name" required>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Preço</mat-label>
+        <input matInput placeholder="Ex.: 41.85" formControlName="price" required>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Peso</mat-label>
+        <input matInput placeholder="Ex.: 699" formControlName="weight">
+        <mat-hint>Em gramas</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Quantidade em estoque</mat-label>
+        <input matInput type="number" placeholder="Ex.: 5" formControlName="amount">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <mat-form-field class="full-width" appearance="outline">
+      <textarea matInput placeholder="Ex.: Alguns itens do sumário e quantidade de páginas"
+        formControlName="description" required></textarea>
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-button [disabled]="parentForm.invalid">Salvar</button>
+  </div>
+</form>

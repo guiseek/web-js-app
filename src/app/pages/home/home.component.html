@@ -1,0 +1,23 @@
+<mat-card *ngFor="let p of products$ | async">
+  <button mat-icon-button class="add" (click)="addToCart(p)">
+    <mat-icon>add_shopping_cart</mat-icon>
+  </button>
+  <mat-card-title>{{p.name}}</mat-card-title>
+  <mat-card-content>{{p.description}}</mat-card-content>
+  <mat-list dense>
+    <mat-list-item>
+      <p mat-line>Preço</p>
+      <p>{{p.price|currency:'BRL'}}</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <p mat-line>Peso</p>
+      <p>{{p.weight}}g</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <p mat-line>Estoque</p>
+      <p>{{p.amount}}</p>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

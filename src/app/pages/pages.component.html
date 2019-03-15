@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)"
+      position="end">
+    <mat-toolbar color="primary">
+      <span>Carrinho</span>
+    </mat-toolbar>
+    <app-cart (onCheckout)="onCheckout()"></app-cart>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="spacer">Web Js App</span>
+      <a mat-button routerLink="/">Loja</a>
+      <a mat-button routerLink="/auth/signin">
+        <mat-icon class="tb-icon">person</mat-icon>
+        Login
+      </a>
+      <a mat-button routerLink="/auth/signup">
+        <mat-icon class="tb-icon">person_add</mat-icon>
+        Cadastro
+      </a>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
