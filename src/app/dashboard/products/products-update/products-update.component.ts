@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Product } from 'src/app/modules/product/interfaces/product';
 import { ProductService } from 'src/app/modules/product/services/product.service';
@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './products-update.component.html',
   styleUrls: ['./products-update.component.scss']
 })
-export class ProductsUpdateComponent implements OnInit {
+export class ProductsUpdateComponent implements OnInit, OnDestroy {
   product$: Observable<Product>;
   productForm: FormGroup;
   productSub: Subscription;
@@ -47,5 +47,8 @@ export class ProductsUpdateComponent implements OnInit {
         this.router.navigate(['/dashboard','products'])
       }
     )
+  }
+  ngOnDestroy() {
+    return this.productSub && this.productSub.unsubscribe()
   }
 }
